@@ -46,7 +46,7 @@ def checkNameLength(name):
             name.remove("")
         firstName = name[0]
         lastName = name[-1]
-        #print firstName,lastName
+        #print(firstName,lastName)
         if "-" in lastName:
             partial_name = lastName.split("-")
             partial_name = partial_name[0][0] + ".-" + partial_name[1]
@@ -61,7 +61,7 @@ def checkNameLength(name):
 def getNames():
     f = open("Navn_til_bordkort.txt","r")
     namelist = []
-    f.readline()
+    
     for line in f.readlines():
         try:
             name = line
@@ -73,8 +73,8 @@ def getNames():
 
             #whatisthis(line[0:-1])
         except LookupError as e:
-            print line
-            print e
+            print(line)
+            print(e)
             f.close()
             exit(1)
 
@@ -100,7 +100,7 @@ def printProgressBar(iteration, total, prefix = 'Process: ', suffix = 'Complete'
     sys.stdout.write('\r%s |%s| %s%% %s ' % (prefix, bar, percent, suffix))
     # Print New Line on Complete
     if iteration >= total:
-        print " "
+        print(" ")
     else:
         sys.stdout.flush()
 
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     farge = False
     namelist = getNames()
     #for name in namelist:
-    #    print name
+    #    print(name)
     if len(sys.argv) > 1:
         if sys.argv[1].lower() == "farge":
             farge = True
